@@ -1,0 +1,62 @@
+<div class="row justify-content-md-center">
+    <div class="col-md-5">
+        <div class="card text-white bg-secondary">
+            <h3 class="card-header" style="text-align: center;">Sign Up</h3>
+            <div class="card-body p-5">
+                <div *ngIf="isSignupError" style="text-align: center; color: red;">
+                    <i class="fa fa-exclamation-circle"></i> Something is wrong Please try again in some time.
+                </div>
+                <form #signupForm="ngForm" (ngSubmit)="signup(signupForm.value)">
+                    <div class="form-group">
+                        <div *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.required" class="alert alert-danger">
+                            Name is required.
+                        </div>
+                        <input type="text" name="name" class="form-control form" placeholder="Your Name" ngModel
+                            #name="ngModel" required />
+                    </div>
+
+                    <div class="form-group">
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                            <div *ngIf="email.errors.required">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.errors.pattern">
+                                Please enter a valid Email ID
+                            </div>
+                        </div>
+                        <input type="email" [pattern]="emailPattern" class="form-control" name="email" ngModel
+                            #email="ngModel" placeholder="Your Email" data-rule="email" required />
+                    </div>
+
+                    <div class="form-group">
+                        <div *ngIf="Password.invalid && (Password.dirty || Password.touched)" class="alert alert-danger">
+                            <div *ngIf="Password.errors.required">
+                                Passsword is required.
+                            </div>
+                        </div>
+                        <input type="password" class="form-control" name="password" #Password="ngModel"
+                            [(ngModel)]="password" placeholder="Passsword" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div *ngIf="ConfirmPassword.invalid && (ConfirmPassword.dirty || ConfirmPassword.touched)" class="alert alert-danger">
+                            <div *ngIf="ConfirmPassword.errors.required">
+                                Confirm Passsword is required.
+                            </div>
+                            <div *ngIf="ConfirmPassword.errors.pattern">
+                                Passwords do not match.
+                            </div>
+                        </div>
+                        <input type="password" class="form-control" name="confirmPassword" #ConfirmPassword="ngModel" [pattern]="password"
+                            [(ngModel)]="confirmPassword" placeholder="Confirm Passsword" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" [disabled]="!signupForm.valid"
+                            class="btn btn-primary form-control">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

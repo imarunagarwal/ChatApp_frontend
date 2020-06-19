@@ -1,0 +1,50 @@
+{
+  "name": "chat-app",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "ng build --aot --prod"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~9.1.1",
+    "@angular/cli": "~9.1.1",
+    "@angular/common": "~9.1.1",
+    "@angular/compiler": "~9.1.1",
+    "@angular/compiler-cli": "~9.1.1",
+    "@angular/core": "~9.1.1",
+    "@angular/forms": "~9.1.1",
+    "@angular/platform-browser": "~9.1.1",
+    "@angular/platform-browser-dynamic": "~9.1.1",
+    "@angular/router": "~9.1.1",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.3",
+    "jquery": "^3.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.15",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.7",
+    "ngx-toastr": "^12.0.1",
+    "nodemailer": "^6.4.6",
+    "path": "^0.12.7",
+    "rxjs": "~6.5.4",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.901.1",
+    "@angular/language-service": "~9.1.1",
+    "@types/node": "^12.11.1",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~3.8.3"
+  }
+}

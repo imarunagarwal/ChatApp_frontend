@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-primary navbar-expand-lg sticky-top">
+    <a class="navbar-brand" style="color: white;" href="/landing">CHATAPP</a>
+    <button style="outline: unset;" id="btncol" class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent">
+        <i style="color: white;" class="fa fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf='!isLoggedIn' class="nav-item"><a class="nav-link" routerLink="/signup">Sign Up</a></li>
+            <li *ngIf='!isLoggedIn' class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+            <li *ngIf='isLoggedIn' style="cursor: pointer;" class="nav-item"><a class="nav-link" (click)="LogOut()">Logout</a></li>
+        </ul>
+    </div>
+</nav>

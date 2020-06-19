@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./room.component.scss']
 })
 export class RoomComponent {
-
+  toggled: boolean = false;
   user: string;
   room: string;
-  messageText: string;
+  messageText: string = '';
   messageArray: Array<{ user: string, message: string }> = [];
 
   constructor(private router: Router, private chatService: ChatService) {
@@ -32,6 +32,11 @@ export class RoomComponent {
 
     this.chatService.newMessageReceived()
       .subscribe(data => this.messageArray.push(data));
+  }
+
+  handleSelection(event) {
+    this.messageText +=event.char;
+    this.toggled = !this.toggled;
   }
 
   leave() {

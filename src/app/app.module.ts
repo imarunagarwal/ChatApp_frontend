@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './Guards/auth.guard';
 import { AuthInterceptor } from './Guards/auth.interceptor';
 import { RoomComponent } from './room/room.component';
+import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RoomComponent } from './room/room.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxEmojiPickerModule.forRoot()
   ],
   providers: [ChatService, UserService, AuthGuard, {
     provide: HTTP_INTERCEPTORS,

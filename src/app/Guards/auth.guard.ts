@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    if (localStorage.getItem('chatApp') !== 'null') {
+    if (localStorage.getItem('chatApp') !== null) {
       return true;
     }
     else {

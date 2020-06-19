@@ -20,6 +20,8 @@ export class HeaderComponent implements OnInit {
 
   LogOut() {
     localStorage.removeItem('chatApp');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('roomName');
     this.userService.setIsLoggedInObserver(false);
     this.router.navigate(['/landing']);
   }

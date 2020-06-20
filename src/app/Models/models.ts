@@ -14,3 +14,7 @@ export interface IResponse {
     userName: string;
 }
 
+export interface ISignUpResponse {
+    message: string;
+}
+

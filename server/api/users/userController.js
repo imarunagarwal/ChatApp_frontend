@@ -17,7 +17,6 @@ exports.confirmUser = function (req, res, next) {
     var decoded = jwt.verify(token, config.secrets.jwt);
     User.findById(decoded._id).then((user) =>{
         user.isVerified = true;
-        console.log(user)
         user.save(function(err, saved) {
             if (err) {
                 next(err);
@@ -33,9 +32,8 @@ exports.confirmUser = function (req, res, next) {
 
 exports.addUser = function (req, res, next) {
     var newUser = new User(req.body);
-
     newUser.save(function (err, user) {
-        if (err) {
+        if (err) {    
             return next(err);
         } else {
             const transporter = nodemailer.createTransport({
@@ -47,7 +45,7 @@ exports.addUser = function (req, res, next) {
                     pass: config.passMail
                 }
             });
-
+            var token = signToken(user._id);
             let msg = {
                 from: config.userMail || '<email>',
                 to: user.email,
@@ -62,6 +60,6 @@ exports.addUser = function (req, res, next) {
                 logger.log(info);
             });
         }
-        res.status(201).send('User Created');
+        res.json({ message: "Created"});
     });
 };

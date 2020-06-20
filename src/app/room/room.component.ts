@@ -35,7 +35,7 @@ export class RoomComponent {
   }
 
   handleSelection(event) {
-    this.messageText +=event.char;
+    this.messageText +=`${event.char} `;
     this.toggled = !this.toggled;
   }
 

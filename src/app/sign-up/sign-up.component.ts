@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import { UserService } from '../Services/user.service';
 import { ISignupModel } from '../Models/models';
 import { ToastrService } from 'ngx-toastr';
+import {ISignUpResponse} from '../Models/models'
 
 @Component({
   selector: 'app-sign-up',
@@ -22,9 +22,9 @@ export class SignUpComponent {
   constructor(private router: Router, private userService: UserService, private toastr: ToastrService) { }
 
   signup(formValue: ISignupModel) {
-    this.userService.userSignUp(formValue).subscribe((res)=>{
+    this.userService.userSignUp(formValue).subscribe((res: ISignUpResponse) => {
       this.router.navigate(['/landing']);
-      this.toastr.info('Please check your mail-box for confirm mail!')
+      this.toastr.info('Please check your mail-box for confirm mail!');
     });
   }
 

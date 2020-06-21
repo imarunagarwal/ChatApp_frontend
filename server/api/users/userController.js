@@ -22,7 +22,7 @@ exports.confirmUser = function (req, res, next) {
                 next(err);
             } else {                
                 res.writeHead(301, {
-                    Location: "http://localhost:3000/login"
+                    Location: "http://web-chatapp-io.herokuapp.com/login"
                 });
                 res.end();
             }

@@ -1,28 +1,29 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col sm-2">
-      <div style="margin-top:19px;" class="pull-right">
-        <button type="button" class="btn btn-danger" (click)="leave()">Leave</button>
+<div class="container">
+  <div class="chatbox">
+    <div class="chatbox__header">
+      <span>{{room}}</span>
+      <span class="pull-right"><i style="font-size:1rem;" class="fa fa-times" (click)="leave()"></i></span>
+    </div>
+    <div class="chatbox__messages">
+      <div *ngFor="let item of messageArray"
+        [ngClass]="{'chatbox__messages--message': true, 'self': item.user === user}">
+        <span>{{item.user}}</span>
+        <div class="message">
+          <p>{{item.message}}</p>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="well" style="height:200px; padding:15px;">
-      <div *ngFor="let item of messageArray">
-        <span [ngClass]="{'align-right' : item.user === user }"><strong>{{item.user}} : </strong>
-          {{item.message}}</span>
+    <div class="chatbox__footer">
+      <div class="input">
+        <input type="text" placeholder="Type Message..." class="form-control" [(ngModel)]="messageText">
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10">
-      <input type="text" class="form-control" [(ngModel)]="messageText">
-      <span style="cursor: pointer;" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled"
-        [emojiPickerDirection]="'bottom'" (emojiPickerSelect)="handleSelection($event)">😄</span>
-    </div>
-    <div class="col-sm-2">
-      <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
+      <div class="emoji" style="cursor: pointer; padding-top: 10px;" (click)="toggled = !toggled"
+        [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'bottom'" (emojiPickerSelect)="handleSelection($event)">
+        😄
+      </div>
+      <div class="send">
+        <button type="button" class="btn center-color" (click)="sendMessage()">Send</button>
+      </div>
     </div>
   </div>
 </div>

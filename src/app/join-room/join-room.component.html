@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center">
     <div class="col-md-5">
-        <div class="card text-white bg-secondary">
+        <div class="card text-white center-color">
             <h3 class="card-header" style="text-align: center;">Join Room</h3>
             <div class="card-body p-5">
                 <form #joinRoom="ngForm" (ngSubmit)="join(joinRoom.value)">
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" [disabled]="!joinRoom.valid" class="btn btn-primary form-control">Join
+                        <button type="submit" [disabled]="!joinRoom.valid" class="btn form-control">Join
                             Room</button>
                     </div>
                 </form>

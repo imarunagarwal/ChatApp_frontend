@@ -13,7 +13,7 @@ export class JoinRoomComponent implements OnInit {
   constructor(private router: Router, private chatService: ChatService) { }
 
   ngOnInit() {
-    this.chatService.getUserNameObserver().subscribe(name =>{
+    this.chatService.getUserNameObserver().subscribe(name => {
       this.userName = name;
     });
   }

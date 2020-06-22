@@ -18,7 +18,7 @@ export class ChatService {
     return localStorage.getItem('roomName'); 
   }
 
-  private socket = io('http://localhost:3000');
+  private socket = io('http://web-chatapp-io.herokuapp.com');
 
   joinRoom(data) {
     this.socket.emit('join', data);

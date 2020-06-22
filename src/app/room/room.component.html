@@ -7,8 +7,8 @@
     </div>
     <div class="chatbox__messages">
       <div *ngFor="let item of messageArray"
-        [ngClass]="{'chatbox__messages--message': true, 'self': item.user === user}">
-        <span>{{item.user}}</span>
+        [ngClass]="{'chatbox__messages--message': item.message !== 'Has joined this room' || item.message !== 'Has left this room', 'self': item.user === user, center: item.message === 'Has joined this room' || item.message === 'Has left this room'}">
+        <div>{{item.user}}</div>
         <div class="message">
           <p>{{item.message}}</p>
         </div>
@@ -16,7 +16,7 @@
     </div>
     <div class="chatbox__footer">
       <div class="input">
-        <input type="text" #message="ngModel" placeholder="Type Message..." class="form-control"
+        <input type="text" #message="ngModel" (keyup.enter)='sendMessage()' placeholder="Type Message..." class="form-control"
           [(ngModel)]="messageText">
       </div>
       <div style="cursor: pointer; padding: 10px;" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled"
@@ -40,7 +40,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Do you really want to leave room?
+        Do you want to leave this room ?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn center-color" (click)="leave()" data-dismiss="modal">Yes</button>

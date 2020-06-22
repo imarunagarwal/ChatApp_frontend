@@ -52,7 +52,9 @@ export class RoomComponent implements OnInit {
   }
 
   sendMessage() {
-    this.chatService.sendMessage({ user: this.user, room: this.room, message: this.messageText });
-    this.messageText = '';
+    if(this.messageText !==''){
+      this.chatService.sendMessage({ user: this.user, room: this.room, message: this.messageText });
+      this.messageText = '';
+    }
   }
 }

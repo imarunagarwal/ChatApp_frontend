@@ -83,6 +83,18 @@ p {
   border-radius: 8px 0 0 16px !important;
 }
 
+.center {
+  align-self: center;
+}
+
+.center > div:first-of-type {
+  text-align: center;
+}
+
+.center .message {
+  border-radius: 8px !important;
+}
+
 
 .input {
   flex-grow: 1;

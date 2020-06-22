@@ -3,11 +3,11 @@ module.exports = function (server) {
     io.on('connection', (socket) => {
         socket.on('join', function (data) {
             socket.join(data.room);
-            socket.broadcast.to(data.room).emit('new user joined', { user: data.user, message: 'has joined this room.' });
+            socket.broadcast.to(data.room).emit('new user joined', { user: data.user, message: 'Has joined this room' });
         });
 
         socket.on('leave', function (data) {
-            socket.broadcast.to(data.room).emit('left room', { user: data.user, message: 'has left this room.' });
+            socket.broadcast.to(data.room).emit('left room', { user: data.user, message: 'Has left this room' });
             socket.leave(data.room);
         });
 

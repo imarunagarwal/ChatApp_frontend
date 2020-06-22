@@ -26,17 +26,31 @@ export class RoomComponent implements OnInit {
     });
 
     this.chatService.newUserJoined()
-      .subscribe(data => this.messageArray.push(data));
+      .subscribe(data => {
+        this.messageArray.push(data);
+        setTimeout(this.updateScroll, 0);
+      });
 
     this.chatService.userLeftRoom()
-      .subscribe(data => this.messageArray.push(data));
+      .subscribe(data => {
+        this.messageArray.push(data);
+        setTimeout(this.updateScroll, 0);
+      });
 
     this.chatService.newMessageReceived()
-      .subscribe(data => this.messageArray.push(data));
+      .subscribe(data => {
+        this.messageArray.push(data);
+        setTimeout(this.updateScroll, 0);
+      });
   }
 
   ngOnInit() {
     this.chatService.joinRoom({ user: this.user, room: this.room });
+  }
+
+  updateScroll() {
+    var element = document.getElementById("chatbox");
+    element.scrollTop = element.scrollHeight;
   }
 
   handleSelection(event) {
@@ -52,7 +66,7 @@ export class RoomComponent implements OnInit {
   }
 
   sendMessage() {
-    if(this.messageText !==''){
+    if (this.messageText !== '') {
       this.chatService.sendMessage({ user: this.user, room: this.room, message: this.messageText });
       this.messageText = '';
     }

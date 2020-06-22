@@ -83,6 +83,10 @@ p {
   border-radius: 8px 0 0 16px !important;
 }
 
+.self > div:first-of-type {
+  text-align: right;
+}
+
 .center {
   align-self: center;
 }

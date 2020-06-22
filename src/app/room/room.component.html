@@ -5,7 +5,7 @@
       <span class="pull-right"><i id="close" style="font-size:1rem;" class="fa fa-times" data-toggle="modal"
           data-target="#exampleModal"></i></span>
     </div>
-    <div class="chatbox__messages">
+    <div id="chatbox" class="chatbox__messages">
       <div *ngFor="let item of messageArray"
         [ngClass]="{'chatbox__messages--message': item.message !== 'Has joined this room' || item.message !== 'Has left this room', 'self': item.user === user, center: item.message === 'Has joined this room' || item.message === 'Has left this room'}">
         <div>{{item.user}}</div>
@@ -16,8 +16,8 @@
     </div>
     <div class="chatbox__footer">
       <div class="input">
-        <input type="text" #message="ngModel" (keyup.enter)='sendMessage()' placeholder="Type Message..." class="form-control"
-          [(ngModel)]="messageText">
+        <input type="text" #message="ngModel" (keyup.enter)='sendMessage()' placeholder="Type Message..."
+          class="form-control" [(ngModel)]="messageText">
       </div>
       <div style="cursor: pointer; padding: 10px;" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled"
         [emojiPickerDirection]="'top'" (emojiPickerSelect)="handleSelection($event)">😄</div>

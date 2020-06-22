@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { UserService } from '../Services/user.service';
 import { ISignupModel } from '../Models/models';
 import { ToastrService } from 'ngx-toastr';
-import {ISignUpResponse} from '../Models/models'
+import { ISignUpResponse } from '../Models/models'
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-up',
@@ -25,7 +26,9 @@ export class SignUpComponent {
     this.userService.userSignUp(formValue).subscribe((res: ISignUpResponse) => {
       this.router.navigate(['/landing']);
       this.toastr.info('Please check your mail-box for confirm mail!');
-    });
+    },
+      (err: HttpErrorResponse) => {
+        this.toastr.error(err.message);
+      });
   }
-
 }

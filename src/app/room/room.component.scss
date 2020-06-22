@@ -1,4 +1,9 @@
-i:hover {
+p {
+  margin-bottom: unset;
+  overflow-wrap: break-word;
+}
+
+#close:hover {
   color: red;
 }
 
@@ -65,24 +70,19 @@ i:hover {
 .message {
   background-color: #eb6464b3;
   color           : white;
-  border-radius   : 0 16px 32px 0;
-  padding         : 0.2rem;
+  border-radius   : 0 8px 16px 0;
+  padding         : 0.5rem;
   font-size       : 1.1rem;
 }
 
 .self {
-  text-align: end;
   align-self: flex-end;
 }
 
 .self .message {
-  border-radius: 8px 0 0 32px !important;
+  border-radius: 8px 0 0 16px !important;
 }
 
-.emoji {
-  margin   : 0 0.5rem;
-  max-width: 5%;
-}
 
 .input {
   flex-grow: 1;

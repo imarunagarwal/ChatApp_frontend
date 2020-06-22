@@ -2,7 +2,7 @@
   <div class="chatbox">
     <div class="chatbox__header">
       <span>{{room}}</span>
-      <span class="pull-right"><i style="font-size:1rem;" class="fa fa-times" (click)="leave()"></i></span>
+      <span class="pull-right"><i id="close" style="font-size:1rem;" class="fa fa-times" (click)="leave()"></i></span>
     </div>
     <div class="chatbox__messages">
       <div *ngFor="let item of messageArray"
@@ -15,14 +15,14 @@
     </div>
     <div class="chatbox__footer">
       <div class="input">
-        <input type="text" placeholder="Type Message..." class="form-control" [(ngModel)]="messageText">
+        <input type="text" #message="ngModel" placeholder="Type Message..." class="form-control" [(ngModel)]="messageText">
       </div>
-      <div class="emoji" style="cursor: pointer; padding-top: 10px;" (click)="toggled = !toggled"
+      <div style="cursor: pointer; padding: 10px;" (click)="toggled = !toggled"
         [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'bottom'" (emojiPickerSelect)="handleSelection($event)">
         😄
       </div>
       <div class="send">
-        <button type="button" class="btn center-color" (click)="sendMessage()">Send</button>
+        <button [disabled]="!message.value" type="button" class="btn center-color" (click)="sendMessage()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>

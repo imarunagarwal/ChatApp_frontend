@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../Services/chat.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss']
 })
-export class RoomComponent {
+export class RoomComponent implements OnInit {
+
   toggled: boolean = false;
   user: string;
   room: string;
@@ -34,8 +35,12 @@ export class RoomComponent {
       .subscribe(data => this.messageArray.push(data));
   }
 
+  ngOnInit() {
+    this.chatService.joinRoom({ user: this.user, room: this.room });
+  }
+
   handleSelection(event) {
-    this.messageText +=`${event.char} `;
+    this.messageText += `${event.char} `;
     this.toggled = !this.toggled;
   }
 

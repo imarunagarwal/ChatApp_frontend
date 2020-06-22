@@ -20,7 +20,6 @@ export class JoinRoomComponent implements OnInit {
 
   join(formValue) {
     this.chatService.setRoomNameObserver(formValue.roomName);
-    this.chatService.joinRoom({ user: this.userName, room: formValue.roomName });
     this.router.navigate(['/room']);
   }
 

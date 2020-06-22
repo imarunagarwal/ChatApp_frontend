@@ -17,7 +17,7 @@ export class UserService {
     }
   }
 
-  readonly rootUrl = 'http://web-chatapp-io.herokuapp.com/api/users/';
+  readonly rootUrl = 'http://localhost:3000/api/users/';
 
   constructor(private http: HttpClient) { }
 

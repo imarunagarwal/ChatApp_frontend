@@ -55,7 +55,6 @@ export class RoomComponent implements OnInit {
 
   handleSelection(event) {
     this.messageText += `${event.char} `;
-    this.toggled = !this.toggled;
   }
 
   leave() {

@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { IResponse } from '../Models/models';
 import { ToastrService } from 'ngx-toastr';
 import { ChatService } from '../Services/chat.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-log-in',
@@ -27,6 +28,14 @@ export class LogInComponent {
         this.userService.setIsLoggedInObserver(true);
         this.router.navigateByUrl('/joinroom');
         this.toastr.success('Logged in successfully', 'Success');
+    },
+    (err:HttpErrorResponse) =>{
+      if(err.status === 401){
+        this.toastr.error('Unauthorized Access.');
+      }
+      else{
+        this.toastr.error('Error Occured.');
+      }
     });
   }
 }

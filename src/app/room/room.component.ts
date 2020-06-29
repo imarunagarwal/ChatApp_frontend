@@ -60,8 +60,8 @@ export class RoomComponent implements OnInit {
   leave() {
     this.router.navigate(['/joinroom']);
     localStorage.removeItem('roomName');
-    this.chatService.setRoomNameObserver('undefined');
     this.chatService.leaveRoom({ user: this.user, room: this.room });
+    this.chatService.setRoomNameObserver('undefined');
   }
 
   sendMessage() {

@@ -45,8 +45,9 @@ p {
 }
 
 .chatbox__messages--message {
+  width: fit-content;
   max-width: 60%;
-  min-width: 10%;
+  min-width: 10% !important;
   margin   : 0.5rem 0;
 }
 

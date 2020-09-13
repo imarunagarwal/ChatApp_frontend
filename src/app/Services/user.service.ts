@@ -2,6 +2,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 
@@ -17,7 +18,7 @@ export class UserService {
     }
   }
 
-  readonly rootUrl = 'http://web-chatapp-io.herokuapp.com/api/users/';
+  readonly rootUrl = environment.baseUrl + '/api/users/';
 
   constructor(private http: HttpClient) { }
 

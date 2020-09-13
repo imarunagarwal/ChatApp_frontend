@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import { Observable, BehaviorSubject } from 'rxjs';
-
+import { environment } from '../../environments/environment';
 @Injectable()
 
 export class ChatService {
@@ -9,16 +9,16 @@ export class ChatService {
   private userName$ = new BehaviorSubject<string>(this.userNameSubsrcriptionDefaultValue());
 
   userNameSubsrcriptionDefaultValue(): string {
-    return localStorage.getItem('userName'); 
+    return localStorage.getItem('userName');
   }
 
   private roomName$ = new BehaviorSubject<string>(this.roomNameSubsrcriptionDefaultValue());
 
   roomNameSubsrcriptionDefaultValue(): string {
-    return localStorage.getItem('roomName'); 
+    return localStorage.getItem('roomName');
   }
 
-  private socket = io('http://web-chatapp-io.herokuapp.com');
+  private socket = io(environment.baseUrl);
 
   joinRoom(data) {
     this.socket.emit('join', data);
@@ -33,7 +33,7 @@ export class ChatService {
   }
 
   public setRoomNameObserver(name: string) {
-    localStorage.setItem('roomName',name); 
+    localStorage.setItem('roomName', name);
     this.roomName$.next(name);
   }
 

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl:'https://web-chatapp-io.herokuapp.com'
+  baseUrl:'https://chat-app-7qe9.onrender.com'
 };
